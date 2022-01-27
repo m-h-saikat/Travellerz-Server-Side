@@ -9,7 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.eeiu8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.od1ig.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
 
 // console.log('mogno  :',uri);
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -18,7 +21,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run() {
     try {
         await client.connect();
-        const database = client.db("Tourblogs");
+        const database = client.db("Travellerz");
         const blogsCollection = database.collection('blogs');
         const reviewCollection = database.collection('review');
        
