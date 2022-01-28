@@ -24,7 +24,6 @@ async function run() {
         const database = client.db("Travellerz");
         const blogsCollection = database.collection('blogs');
         const reviewCollection = database.collection('review');
-       
         const userCollection = database.collection('user');
 
 
@@ -80,7 +79,11 @@ async function run() {
             res.send(result)
         })
 
-
+        app.get('/allReviews', async (req, res) => {
+            const cursor = reviewCollection.find({});
+            const result = await cursor.toArray();
+            res.send(result);
+        })
 
 
         // get review
